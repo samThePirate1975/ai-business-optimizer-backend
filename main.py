@@ -15,18 +15,16 @@ app = FastAPI(
     version="1.0.0"
 )
 
-origins = [
-    "http://localhost:5173",  # Si tu testes en local avec Vite
-    "http://127.0.0.1:5173",
-    "https://ai-business-optimizer.netlify.app",  # 🚀 Ton frontend déployé sur Netlify
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # 🌍 Ajoute Netlify et localhost
+    allow_origins=[
+        "http://127.0.0.1:5173",  # Local React
+        "http://localhost:5173",  # Local React
+        "https://ai-business-optimizer.netlify.app",  # Front déployé
+    ],
     allow_credentials=True,
-    allow_methods=["*"],  # Autorise tous les types de requêtes
-    allow_headers=["*"],  # Autorise tous les headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
