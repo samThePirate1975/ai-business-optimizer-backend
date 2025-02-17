@@ -3,7 +3,10 @@ from routes import analyze, automate, optimize, decision, audit
 import sys
 import os
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+from dotenv import load_dotenv
 
+load_dotenv()
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = FastAPI(
@@ -32,3 +35,5 @@ app.include_router(audit.router, prefix="/api", tags=["Audit"])
 async def root():
     return {"message": "Bienvenue sur AI Business Optimizer 🚀"}
 
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
