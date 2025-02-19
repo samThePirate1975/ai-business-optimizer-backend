@@ -1,0 +1,8 @@
+# 🔒 Fichiers sensibles
+.env
+*.pyc
+__pycache__/
+db.sqlite3
+instance/
+.vscode/
+.idea/
