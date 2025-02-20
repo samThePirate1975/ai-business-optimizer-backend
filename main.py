@@ -28,7 +28,11 @@ app.add_middleware(
 )
 
 import os
-print(f"🔑 OPENAI_API_KEY détectée ? {os.getenv('OPENAI_API_KEY')}")
+openai_key = os.getenv("OPENAI_API_KEY")
+print(f"🔍 OpenAI Key détectée ? {'Oui' if openai_key else 'Non'}")
+if not openai_key:
+    raise ValueError("⚠️ La clé API OpenAI est toujours manquante dans Railway ! Vérifie la config.")
+
 
 
 
