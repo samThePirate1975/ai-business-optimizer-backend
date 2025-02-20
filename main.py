@@ -39,6 +39,3 @@ app.include_router(audit.router, prefix="/api", tags=["Audit"])
 @app.get("/", tags=["Root"])
 async def root():
     return {"message": "Bienvenue sur AI Business Optimizer 🚀"}
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
