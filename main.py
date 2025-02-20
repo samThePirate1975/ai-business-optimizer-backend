@@ -27,15 +27,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-import os
-openai_key = os.getenv("OPENAI_API_KEY")
-print(f"🔍 OpenAI Key détectée ? {'Oui' if openai_key else 'Non'}")
-if not openai_key:
-    raise ValueError("⚠️ La clé API OpenAI est toujours manquante dans Railway ! Vérifie la config.")
-
-
-
-
 
 # Inclusion des routers
 app.include_router(analyze.router, prefix="/analyze-business", tags=["Analyse"])
@@ -48,3 +39,9 @@ app.include_router(audit.router, prefix="/api", tags=["Audit"])
 @app.get("/", tags=["Root"])
 async def root():
     return {"message": "Bienvenue sur AI Business Optimizer 🚀"}
+
+
+@app.get("/debug/env")
+async def debug_env():
+    openai_key = os.getenv("OPENAI_API_KEY")
+    return {"OPENAI_API_KEY": "Détectée" if openai_key else "Non détectée"}
