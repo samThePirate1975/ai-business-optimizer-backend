@@ -18,8 +18,8 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://127.0.0.1:5173",  # Local React
-        "http://localhost:5173",  # Local React
+        "http://127.0.0.1:8000",  # Local React
+        "http://localhost:8000",  # Local React
         "https://ai-business-optimizer.netlify.app",  # Front déployé
     ],
     allow_credentials=True,
@@ -28,7 +28,7 @@ app.add_middleware(
 )
 
 import os
-print("🔍 OPENAI_API_KEY chargée ?", os.getenv("OPENAI_API_KEY"))
+#print("🔍 OPENAI_API_KEY chargée ?", os.getenv("OPENAI_API_KEY"))
 
 
 
