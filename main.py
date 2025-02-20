@@ -27,6 +27,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+import os
+print("🔍 OPENAI_API_KEY chargée ?", os.getenv("OPENAI_API_KEY"))
+
+
 
 # Inclusion des routers
 app.include_router(analyze.router, prefix="/analyze-business", tags=["Analyse"])
