@@ -28,7 +28,8 @@ app.add_middleware(
 )
 
 import os
-#print("🔍 OPENAI_API_KEY chargée ?", os.getenv("OPENAI_API_KEY"))
+print(f"🔑 OPENAI_API_KEY détectée ? {os.getenv('OPENAI_API_KEY')}")
+
 
 
 
