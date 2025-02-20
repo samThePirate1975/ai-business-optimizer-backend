@@ -43,5 +43,6 @@ async def root():
 
 @app.get("/debug/env")
 async def debug_env():
-    openai_key = os.getenv("OPENAI_API_KEY")
-    return {"OPENAI_API_KEY": "Détectée" if openai_key else "Non détectée"}
+    import os
+    return {"OPENAI_API_KEY": os.getenv("OPENAI_API_KEY")}
+

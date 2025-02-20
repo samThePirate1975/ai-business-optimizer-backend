@@ -5,10 +5,17 @@ import os
 from dotenv import load_dotenv
 import json
 
-load_dotenv()  # Charge d'abord les variables du `.env`
+import os
+from dotenv import load_dotenv
 
-# Change la priorité pour FORCER Railway à lire ses propres variables
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", None)
+# 🔥 On charge d'abord le .env
+load_dotenv()
+
+# 🔥 On récupère la clé d'API OpenAI
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+
+# 🔥 On affiche ce qu'on récupère pour le debug
+print(f"DEBUG Railway: OPENAI_API_KEY = {OPENAI_API_KEY}")
 
 if not OPENAI_API_KEY:
     raise ValueError("⚠️ OPENAI_API_KEY est manquante. Vérifie les variables d’environnement Railway !")
